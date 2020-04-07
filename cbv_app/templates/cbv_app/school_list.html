@@ -1,0 +1,12 @@
+% extends "cbv_app/cbv_app_base.html" %}
+
+{% block body_block %}
+<h1>School List</h1>
+<div class="jumbotron">
+  <ol>
+    {% for school in schools %}
+      <h2><li>{{scool.name}}</li></h2>
+    {% endfor %}
+  </ol>
+</div>
+{% endblock %}
