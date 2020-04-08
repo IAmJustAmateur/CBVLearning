@@ -16,9 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 #from cbv_app import views
-from cbv_app.views import SchoolListView
+from cbv_app.views import SchoolListView, IndexView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('cbv_app/', include('cbv_app.urls'), namespace = 'cbv_app' ),
+    path('', IndexView.as_view()),
+    path('cbv_app/', include('cbv_app.urls', namespace = 'cbv_app')),
 ]
