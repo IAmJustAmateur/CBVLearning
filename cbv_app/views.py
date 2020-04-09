@@ -3,6 +3,7 @@ from django.views.generic import (View, TemplateView, ListView,
                                     DetailView, CreateView, UpdateView, DeleteView)
 from django.http import HttpResponse
 from cbv_app.models import School, Student
+from django.urls import reverse, reverse_lazy
 
 # Create your views here.
 class IndexView(TemplateView):
@@ -21,3 +22,11 @@ class SchoolDetailView(DetailView):
 class SchoolCreateView(CreateView):
     model = School
     fields = ('name', 'principal', 'location')
+
+class SchoolUpdateView(UpdateView):
+    model = School
+    fields = ('name', 'principal')
+
+class SchoolDeleteView(DeleteView):
+    model = School
+    success_url = reverse_lazy("cbv_app:list")

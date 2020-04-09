@@ -12,7 +12,10 @@ class School(models.Model):
         return self.name
 
     def get_absolute_url(self):
+
         #return "cbv_app/%i/" % self.pk
+        print ("in get_absolute_url")
+        print(reverse("cbv_app:detail", kwargs = {'pk':self.pk}))
         return reverse("cbv_app:detail", kwargs = {'pk':self.pk})
 
 
